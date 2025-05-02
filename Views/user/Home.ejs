@@ -1,43 +1,154 @@
-
-
-<header class="navbar">
-    <div class="container">
-      <h1>ShopEasy</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN BODY -->
-  <main class="main-content">
+<%-include("../../Views/partials/user/header.ejs")%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalkAura</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/home.css">
+</head>
+    <!-- Hero Section -->
     <section class="hero">
-      <h2>Welcome to ShopEasy</h2>
-      <p>Your one-stop shop for everything!</p>
-      <a href="#" class="btn">Shop Now</a>
+        <div class="container">
+            <h1>Step Into Style</h1>
+            <p>Discover our latest collection of premium footwear for every occasion and style preference.</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
     </section>
 
-    <section class="products">
-      <h3>Featured Products</h3>
-      <div class="product-list">
-        <div class="product-card">
-          <img src="https://via.placeholder.com/200" alt="Product 1" />
-          <h4>Smart Watch</h4>
-          <p>$99.99</p>
+    <!-- Featured Products Section -->
+    <section class="featured">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="/api/placeholder/300/300" alt="Running Shoes" class="product-img">
+                    <div class="product-info">
+                        <div class="product-category">Running</div>
+                        <h3 class="product-title">Ultra Boost Runner</h3>
+                        <div class="product-price">
+                            <div class="price">$129.99</div>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="/api/placeholder/300/300" alt="Casual Sneakers" class="product-img">
+                    <div class="product-info">
+                        <div class="product-category">Casual</div>
+                        <h3 class="product-title">Classic Canvas</h3>
+                        <div class="product-price">
+                            <div class="price">$79.99</div>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="/api/placeholder/300/300" alt="Formal Shoes" class="product-img">
+                    <div class="product-info">
+                        <div class="product-category">Formal</div>
+                        <h3 class="product-title">Executive Leather</h3>
+                        <div class="product-price">
+                            <div class="price">$149.99</div>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="/api/placeholder/300/300" alt="Sport Shoes" class="product-img">
+                    <div class="product-info">
+                        <div class="product-category">Sport</div>
+                        <h3 class="product-title">Pro Basketball</h3>
+                        <div class="product-price">
+                            <div class="price">$159.99</div>
+                            <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/200" alt="Product 2" />
-          <h4>Wireless Headphones</h4>
-          <p>$59.99</p>
-        </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/200" alt="Product 3" />
-          <h4>Gaming Mouse</h4>
-          <p>$29.99</p>
-        </div>
-      </div>
     </section>
-  </main>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shop By Category</h2>
+            </div>
+            <div class="category-grid">
+                <!-- Category 1 -->
+                <div class="category-card">
+                    <img src="/api/placeholder/400/400" alt="Men's Shoes" class="category-img">
+                    <div class="category-overlay">
+                        <div class="category-name">Men's Collection</div>
+                    </div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="category-card">
+                    <img src="/api/placeholder/400/400" alt="Women's Shoes" class="category-img">
+                    <div class="category-overlay">
+                        <div class="category-name">Women's Collection</div>
+                    </div>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="category-card">
+                    <img src="/api/placeholder/400/400" alt="Kids Shoes" class="category-img">
+                    <div class="category-overlay">
+                        <div class="category-name">Kids Collection</div>
+                    </div>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="category-card">
+                    <img src="/api/placeholder/400/400" alt="Sport Shoes" class="category-img">
+                    <div class="category-overlay">
+                        <div class="category-name">Sport Collection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2>Summer Sale Is On!</h2>
+                    <p>Enjoy up to 50% off on selected summer styles. Limited time offer, shop now before it's too late.</p>
+                    <a href="#" class="btn btn-light">View Deals</a>
+                </div>
+                <div class="banner-img">
+                    <img src="/api/placeholder/500/300" alt="Sale Banner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="section-title">
+                <h2>Subscribe To Our Newsletter</h2>
+            </div>
+            <p>Get updates about new products and special offers.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    <%-include("../../Views/partials/user/footer.ejs")%>
