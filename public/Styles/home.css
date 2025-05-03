@@ -452,3 +452,42 @@ footer {
         margin-bottom: 30px;
     }
 }
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .nav-icon:hover {
+    color: #007bff;
+  }
+
+  .auth-link {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .auth-link:hover {
+    color: #007bff;
+  }
+
+  @media (max-width: 768px) {
+    .nav-icons {
+      gap: 10px;
+    }
+
+    .auth-link {
+      font-size: 0.9rem;
+    }
+  }

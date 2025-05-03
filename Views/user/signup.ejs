@@ -1,0 +1,91 @@
+<head>
+    <link rel="stylesheet" href="/Styles/signup.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Left Side - Visual -->
+        <div class="visual-side">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-square"></div>
+                    Walk<span class="logo-highlight">Aura</span>
+                </div>
+            </div>
+            
+            <div class="shoes-showcase">
+                <div class="shoe shoe-1"></div>
+                <div class="shoe shoe-2"></div>
+                <div class="shoe shoe-3"></div>
+                
+                <div class="floating-elements">
+                    <div class="floating-circle c1"></div>
+                    <div class="floating-circle c2"></div>
+                    <div class="floating-circle c3"></div>
+                </div>
+            </div>
+            
+            <p class="tagline">Step up your style with <strong>exclusive shoes</strong> made for champions.</p>
+        </div>
+        
+        <!-- Right Side - Form -->
+        <div class="form-side">
+            <div class="form-side-background"></div>
+            
+            <div class="form-header">
+               <h1>SIGNUP</h1>
+                <p>Join our sneakerhead community and unlock access to exclusive drops!</p>
+            </div>
+            
+            <form id="signup-form" method="post" action="/signup">
+                <div class="input-group">
+                    <input type="text" id="fullName" placeholder=" " name="name">
+                    <label for="fullName">Full Name</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " name="email">
+                    <label for="email">Email Address</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="number" id="phone" placeholder=" " name="phone">
+                    <label for="phoneNumber">Mobile Number</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" id="password" placeholder=" " name="password">
+                    <label for="password">Password</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="confirmPassword" placeholder=" "  name="confirmPassword">
+                    <label for="confirmPassword">Confirm Password</label>
+                </div>
+                
+                <button type="submit" class="btn-signup">
+                    Create Account
+                </button>
+            </form>
+            
+            <div class="divider">
+                <span>or continue with</span>
+            </div>
+            
+            <div class="social-signup">
+                <button class="social-btn">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button class="social-btn">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </button>
+            </div>
+            
+            <div class="login-link">
+                <span>Already have an account?</span>
+                <a href="/login">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+ 
+</body>
