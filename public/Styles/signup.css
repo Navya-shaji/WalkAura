@@ -224,3 +224,8 @@ body, html {
 .login-link a:hover {
     text-decoration: underline;
 }
+.Error{
+    color: red;
+    font-size: 0.5rem;
+    display: none;
+}
