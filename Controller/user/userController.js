@@ -52,31 +52,34 @@ async function sendVerificationEmail(email, otp) {
         return false;
     }
 }
+
 const signUp = async (req, res) => {
     try {
 
-        const { email, password, confirmpassword } = req.body
-        if (password !== confirmpassword) {
-            res.render('signup', { messege: "Passwords are not match" })
+        const { email, password, confirmPassword } = req.body
+        if (password !== confirmPassword) {
+         return   res.render('signup', { messege: "Passwords are not match" })
         }
         const findUser = await User.findOne({ email: req.body.email });
         if (findUser) {
-            res.render('signup', { messege: "User already exist" })
+          return   res.render('signup', { messege: "User already exist" })
         }
         const otp = generateOtp()
         const emailSent = await sendVerificationEmail(email, otp)
         if (!emailSent) {
-            return res.json('email-error')
+            return res.render('signup', { message: "Failed to send OTP. Please try again." });
         }
         req.session.userOtp = otp;
         req.session.userdata = { email, password }
-        // res.render("verify-otp")
         console.log("OTP", otp)
+        return res.render("verify-otp")
     } catch (error) {
         console.error("Signup error", error)
-        res.redirect("/pageNotFound")
+         res.redirect("/pageNotFound")
     }
 }
+
+
 
 const PageNotFound = async (req, res) => {
     try {
