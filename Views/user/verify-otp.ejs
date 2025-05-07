@@ -3,32 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTP Verification</title>
+    <title>StrideLux - OTP Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/Styles/verify-otp.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4285F4">
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-            </svg>
+    <div class="page-container">
+        <!-- Left Side - Visual -->
+        <div class="visual-side">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-square"></div>
+                    Stride<span class="logo-highlight">Lux</span>
+                </div>
+            </div>
+
+            <div class="shoes-showcase">
+                <div class="shoe shoe-1"></div>
+                <div class="shoe shoe-2"></div>
+                <div class="shoe shoe-3"></div>
+
+                <div class="floating-elements">
+                    <div class="floating-circle c1"></div>
+                    <div class="floating-circle c2"></div>
+                    <div class="floating-circle c3"></div>
+                </div>
+            </div>
+
+            <p class="tagline">Elevate your journey with <strong>premium footwear</strong> crafted for excellence.</p>
         </div>
-        <h1 class="title">Verification Code</h1>
-        <p class="subtitle">We've sent a verification code to your email address. Please enter the code below.</p>
-        
-        <div class="otp-container">
-            <input type="text" class="otp-input" maxlength="1" autofocus>
-            <input type="text" class="otp-input" maxlength="1">
-            <input type="text" class="otp-input" maxlength="1">
-            <input type="text" class="otp-input" maxlength="1">
-            <input type="text" class="otp-input" maxlength="1">
-            <input type="text" class="otp-input" maxlength="1">
+
+        <!-- Right Side - Form -->
+        <div class="form-side">
+            <div class="form-side-background"></div>
+
+            <div class="form-header">
+                <h1>Verify OTP</h1>
+                <p>Enter the 6-digit code sent to your email to verify your account.</p>
+            </div>
+
+            <form id="otp-form" method="post" action="/verify-otp">
+                <div class="otp-input-group">
+                    <input type="text" class="otp-input" maxlength="1" required>
+                    <input type="text" class="otp-input" maxlength="1" required>
+                    <input type="text" class="otp-input" maxlength="1" required>
+                    <input type="text" class="otp-input" maxlength="1" required>
+                    <input type="text" class="otp-input" maxlength="1" required>
+                    <input type="text" class="otp-input" maxlength="1" required>
+                </div>
+
+                <div id="otp-error" class="Error"></div>
+
+                <button type="submit" class="btn-verify">
+                    Verify OTP
+                </button>
+            </form>
+
+            <div class="resend-link">
+                <span>Didn’t receive the code?</span>
+                <a href="/resend-otp">Resend OTP</a>
+            </div>
         </div>
-        
-        <button id="verifyBtn" class="verify-btn" disabled>Verify</button>
-        
-        <div id="message" class="message"></div>
-        
-        <p class="resend">Didn't receive the code? <a href="#" id="resendLink">Resend</a></p>
-        <p class="timer" id="timer">Resend in <span id="countdown">60</span> seconds</p>
     </div>
+
+    
+</body>
+</html>

@@ -1,4 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrideLux - Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/Styles/signup.css">
 </head>
 
@@ -9,7 +15,7 @@
             <div class="logo-container">
                 <div class="logo">
                     <div class="logo-square"></div>
-                    Walk<span class="logo-highlight">Aura</span>
+                    Stride<span class="logo-highlight">Lux</span>
                 </div>
             </div>
 
@@ -25,7 +31,7 @@
                 </div>
             </div>
 
-            <p class="tagline">Step up your style with <strong>exclusive shoes</strong> made for champions.</p>
+            <p class="tagline">Elevate your journey with <strong>premium footwear</strong> crafted for excellence.</p>
         </div>
 
         <!-- Right Side - Form -->
@@ -33,8 +39,8 @@
             <div class="form-side-background"></div>
 
             <div class="form-header">
-                <h1>SIGNUP</h1>
-                <p>Join our sneakerhead community and unlock access to exclusive drops!</p>
+                <h1>Create Account</h1>
+                <p>Join our exclusive community and discover limited edition footwear collections.</p>
             </div>
 
             <form id="signup-form" method="post" action="/signup">
@@ -52,27 +58,24 @@
 
                 <div class="input-group">
                     <input type="number" id="phone" placeholder=" " name="phone">
-                    <label for="phoneNumber">Mobile Number</label>
+                    <label for="phone">Mobile Number</label>
                     <div id="error3" class="Error"></div>
-
                 </div>
 
                 <div class="input-group">
                     <input type="password" id="password" placeholder=" " name="password">
                     <label for="password">Password</label>
                     <div id="error4" class="Error"></div>
-
                 </div>
 
                 <div class="input-group">
                     <input type="password" id="confirmPassword" placeholder=" " name="confirmPassword">
                     <label for="confirmPassword">Confirm Password</label>
                     <div id="error5" class="Error"></div>
-
                 </div>
 
                 <button type="submit" class="btn-signup">
-                    Create Account
+                    Get Started
                 </button>
             </form>
 
@@ -95,118 +98,116 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const nameid = document.getElementById("fullName");
+        const emailid = document.getElementById("email");
+        const phoneid = document.getElementById("phone");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const error1 = document.getElementById("error1");
+        const error2 = document.getElementById("error2");
+        const error3 = document.getElementById("error3");
+        const error4 = document.getElementById("error4");
+        const error5 = document.getElementById("error5");
+        const signform = document.getElementById("signup-form");
+
+        // Validation
+        function nameValidation() {
+            const nameval = nameid.value;
+            const namePattern = /^[A-Za-z\s]+$/;
+            if (nameval.trim() === "") {
+                error1.style.display = "block";
+                error1.innerHTML = "Please enter a valid name";
+            } else if (!namePattern.test(nameval)) {
+                error1.style.display = "block";
+                error1.innerHTML = "Name can only contain alphabets and spaces";
+            } else {
+                error1.style.display = "none";
+                error1.innerHTML = "";
+            }
+        }
+
+        function emailValidation() {
+            const emailval = emailid.value;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (emailval.trim() === "") {
+                error2.style.display = "block";
+                error2.innerHTML = "Please enter a valid email";
+            } else if (!emailPattern.test(emailval)) {
+                error2.style.display = "block";
+                error2.innerHTML = "Please enter a valid email";
+            } else {
+                error2.style.display = "none";
+                error2.innerHTML = "";
+            }
+        }
+
+        function phoneValidation() {
+            const phoneval = phoneid.value;
+            const phonePattern = /^[0-9]{10}$/;
+            if (phoneval.trim() === "") {
+                error3.style.display = "block";
+                error3.innerHTML = "Please enter a valid phone number";
+            } else if (!phonePattern.test(phoneval)) {
+                error3.style.display = "block";
+                error3.innerHTML = "Please enter a valid phone number";
+            } else {
+                error3.style.display = "none";
+                error3.innerHTML = "";
+            }
+        }
+
+        function passwordValidation() {
+            const passval = password.value;
+            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+            if (passval.trim() === "") {
+                error4.style.display = "block";
+                error4.innerHTML = "Please enter a valid password";
+            } else if (!passwordPattern.test(passval)) {
+                error4.style.display = "block";
+                error4.innerHTML = "Password must have at least 6 characters, including uppercase, lowercase, and a number";
+            } else {
+                error4.style.display = "none";
+                error4.innerHTML = "";
+            }
+        }
+
+        function confirmPasswordValidation() {
+            const passval = password.value;
+            const cpassval = confirmPassword.value;
+
+            if (cpassval.trim() === "") {
+                error5.style.display = "block";
+                error5.innerHTML = "Please confirm your password";
+            } else if (passval !== cpassval) {
+                error5.style.display = "block";
+                error5.innerHTML = "Passwords do not match";
+            } else {
+                error5.style.display = "none";
+                error5.innerHTML = "";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            signform.addEventListener("submit", function (e) {
+                nameValidation();
+                emailValidation();
+                phoneValidation();
+                passwordValidation();
+                confirmPasswordValidation();
+
+                if (!nameid || !emailid || !phoneid || !password || !confirmPassword || !error1 || !error2 || !error3 || !error4 || !error5) {
+                    console.log("One or more fields are not found");
+                    e.preventDefault();
+                    return;
+                }
+
+                if (error1.innerHTML || error2.innerHTML || error3.innerHTML || error4.innerHTML || error5.innerHTML) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 </body>
-<script>
-
-    const nameid = document.getElementById("fullName")
-    const emailid = document.getElementById("email")
-    const phoneid = document.getElementById("phone")
-    const password = document.getElementById("password")
-    const confirmPassword = document.getElementById("confirmPassword")
-    const error1 = document.getElementById("error1")
-    const error2 = document.getElementById("error2")
-    const error3 = document.getElementById("error3")
-    const error4 = document.getElementById("error4")
-    const error5 = document.getElementById("error5")
-    const signform = document.getElementById("signup-form")
-
-    //Validation...................................................
-
-    function nameValidation(e) {
-        const nameval = nameid.value;
-        const namePattern = /^[A-Za-z\s]+$/;
-        if (nameval.trim() == "") {
-            error1.style.display = "block";
-            error1.innerHTML = "Please enter a valid name"
-        } else if (!namePattern.test(nameval)) {
-            error1.style.display = "block";
-            error1.innerHTML = "Name can only contain alphabets and spaces"
-
-        } else {
-            error1.style.display = "none"
-            error1.innerHTML = ""
-        }
-    }
-
-
-    function emailValidation(e) {
-        const emailval = emailid.value;
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (emailval.trim() == "") {
-            error2.style.display = "block";
-            error2.innerHTML = "Please enter a valid email"
-        } else if (!emailPattern.test(emailval)) {
-            error2.style.display = "block";
-            error2.innerHTML = "Please enter a valid email"
-        } else {
-            error2.style.display = "none"
-            error2.innerHTML = ""
-        }
-
-    }
-
-    function phoneValidation(e) {
-        const phoneval = phoneid.value;
-        const phonePattern = /^[0-9]{10}$/;
-        if (phoneval.trim() == "") {
-            error3.style.display = "block";
-            error3.innerHTML = "Please enter a valid phone number"
-        } else if (!phonePattern.test(phoneval)) {
-            error3.style.display = "block";
-            error3.innerHTML = "Please enter a valid phone number"
-        } else {
-            error3.style.display = "none"
-            error3.innerHTML = ""
-        }
-    }
-
-    function passwordValidation(e) {
-        const passval = password.value;
-        const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-        if (passval.trim() == "") {
-            error4.style.display = "block";
-            error4.innerHTML = "Please enter a valid phone password"
-        } else if (!passwordPattern.test(passval)) {
-            error4.style.display = "block";
-            error4.innerHTML = "Password must have at least 6 characters, including uppercase, lowercase, and a number"
-        } else {
-            error4.style.display = "none"
-            error4.innerHTML = ""
-        }
-
-    }
-
-    function confirmPasswordValidation() {
-        const passval = password.value;
-        const cpassval = confirmPassword.value;
-
-        if (cpassval.trim() === "") {
-            error5.style.display = "block";
-            error5.innerHTML = "Please confirm your password";
-        } else if (passval !== cpassval) {
-            error5.style.display = "block";
-            error5.innerHTML = "Passwords do not match";
-        } else {
-            error5.style.display = "none";
-            error5.innerHTML = "";
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        signform.addEventListener("submit", function (e) {
-            nameValidation()
-            emailValidation()
-            phoneValidation()
-            passwordValidation()
-            confirmPasswordValidation()
-
-            if (!nameid || !emailid || !phoneid || !password || !confirmPassword || !error1 || !error2 || !error3 || !error4 || !error5) {
-                console.log("one or more fields are not found")
-            }
-            if (error1.innerHTML || error2.innerHTML || error3.innerHTML || error4.innerHTML || error5.innerHTML) {
-                e.preventDefault()
-            }
-        })
-    })
-
-</script>
+</html>
