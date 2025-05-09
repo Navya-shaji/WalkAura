@@ -79,7 +79,25 @@ const signUp = async (req, res) => {
     }
 }
 
-
+const verifyOtp=async(req,res)=>{
+ try {
+    const {otp}=req.body
+    const sessionOtp=req.session.userOtp
+    if(otp==sessionOtp){
+       const {email,password}= req.session.userdata 
+       const newUser=new User( {email,password})
+       await newUser.save()
+        req.session.userOtp=null;
+        req.session.userdata =null;
+        return res.render("Login",{messege:"Please Login Now "})
+    }else{
+        return res.render("verify-otp",{messege:"Incorrect otp"})
+    }
+ } catch (error) {
+    console.error(error)
+    res.redirect('/PageNotFound')
+ }
+}
 
 const PageNotFound = async (req, res) => {
     try {
@@ -93,5 +111,6 @@ module.exports = {
     LoadHomePage,
     PageNotFound,
     LoadSignupPage,
-    signUp
+    signUp,
+    verifyOtp
 }
